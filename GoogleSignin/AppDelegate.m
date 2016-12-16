@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
+#import <Google/SignIn.h>
+#import "SiginSuccessViewController.h"
+@interface AppDelegate ()<GIDSignInDelegate>
 
 @end
 
@@ -16,10 +17,48 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSError* configureError;
+    [[GGLContext sharedInstance] configureWithError: &configureError];
+    NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+    
+    [GIDSignIn sharedInstance].delegate = self;
     // Override point for customization after application launch.
     return YES;
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:sourceApplication
+                                      annotation:annotation];
+}
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations on signed in user here.
+    NSString *userId = user.userID;                  // For client-side use only!
+    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+    NSString *fullName = user.profile.name;
+    NSString *givenName = user.profile.givenName;
+    NSString *familyName = user.profile.familyName;
+    NSString *email = user.profile.email;
+    NSLog(@"userId%@", userId);
+    NSLog(@"idToken%@",idToken);
+    NSLog(@"fullName%@", fullName);
+    NSLog(@"givenName%@", givenName);
+    NSLog(@"familyName%@",  familyName);
+    NSLog(@"email%@", email);
+   UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    SiginSuccessViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SiginSuccessViewController"];
+    //[[SiginSuccessViewController alloc]initWithNibName:@"SiginSuccessViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc]initWithNibName:@"NaviagtionRoot" bundle:nil];
+  
+    [nav pushViewController:vc animated:YES];
+    self.window.rootViewController = nav;
+    // ...
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

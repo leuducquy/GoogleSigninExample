@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>795691423904-v1df5lfe12cdn1l2tp2gv1rea1slppih.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.795691423904-v1df5lfe12cdn1l2tp2gv1rea1slppih</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDKE0mMBk1VkVXTOLF1ZCgyAa91GGxYJtU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>795691423904</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>quy.home.FireBaseAudio</string>
+	<key>PROJECT_ID</key>
+	<string>toiec-61f6a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>toiec-61f6a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:795691423904:ios:88673a08be073831</string>
+	<key>DATABASE_URL</key>
+	<string>https://toiec-61f6a.firebaseio.com</string>
+</dict>
+</plist>

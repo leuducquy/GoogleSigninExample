@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()< GIDSignInUIDelegate>
 
 @end
 
@@ -16,9 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [GIDSignIn sharedInstance].uiDelegate = self;
     // Do any additional setup after loading the view, typically from a nib.
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
